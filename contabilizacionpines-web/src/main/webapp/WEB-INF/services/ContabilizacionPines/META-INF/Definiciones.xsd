@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://colsanitas.com/osi/comun/nofuncionales" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://colsanitas.com/osi/comun/nofuncionales">
+    <xsd:complexType name="MessageKey">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="correlationId" type="xsd:string"/>
+            <xsd:element name="requestVersion" type="xsd:string"/>
+            <xsd:element name="requestUUID" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="MessageTrace">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="processId" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="integrationId" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="tracingId" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="MessageHeader">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="messageKey" type="tns:MessageKey"/>
+            <xsd:element minOccurs="0" name="messageInfo" type="tns:MessageInfo"/>
+            <xsd:element minOccurs="0" name="trace" type="tns:MessageTrace"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="BusinessException">
+        <xsd:sequence>
+            <xsd:element name="errorDetail" type="tns:ErrorDetail"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ErrorDetail">
+        <xsd:sequence>
+            <xsd:element name="errorCode" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="errorType" type="xsd:string"/>
+            <xsd:element name="errorDesc" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="rootCause" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="SystemException">
+        <xsd:sequence>
+            <xsd:element name="errorDetail" type="tns:ErrorDetail"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ResponseStatus">
+        <xsd:sequence>
+            <xsd:element name="ack" type="xsd:boolean"/>
+            <xsd:element minOccurs="0" name="businessException" type="tns:BusinessException"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ServiceKey">
+        <xsd:sequence>
+            <xsd:element name="systemId" type="xsd:string"/>
+            <xsd:element name="serviceId" type="xsd:string"/>
+            <xsd:element default="1" name="majorVersion" type="xsd:int"/>
+            <xsd:element default="0" name="minorVersion" type="xsd:int"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="HeaderFault">
+        <xsd:sequence>
+            <xsd:element name="serviceId" type="tns:ServiceKey"/>
+            <xsd:element name="errorDetail" type="tns:ErrorDetail"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="MessageInfo">
+        <xsd:sequence>
+            <xsd:element name="timeZone" type="xsd:string"/>
+            <xsd:element name="dateTime" type="xsd:dateTime"/>
+            <xsd:element minOccurs="0" name="systemId" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

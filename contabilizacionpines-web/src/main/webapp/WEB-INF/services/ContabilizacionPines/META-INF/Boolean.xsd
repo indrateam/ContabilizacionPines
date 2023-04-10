@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://colsanitas.com/osi/comun/tiposdedato" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://colsanitas.com/osi/comun/tiposdedato">
+    <xsd:simpleType name="booleanType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="1">
+                <xsd:annotation>
+                    <xsd:documentation>Falso</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="0">
+                <xsd:annotation>
+                    <xsd:documentation>Verdadero</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

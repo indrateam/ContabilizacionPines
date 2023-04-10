@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://colsanitas.com/osi/comun/organizacion" xmlns:ub="http://colsanitas.com/osi/comun/ubicacion" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://colsanitas.com/osi/comun/organizacion">
+    <xsd:annotation>
+        <xsd:documentation>Representa el concepto de Oficina
+		</xsd:documentation>
+    </xsd:annotation>
+    <xsd:import namespace="http://colsanitas.com/osi/comun/ubicacion" schemaLocation="Direccion.xsd"/>
+    <xsd:element name="Oficina" type="tns:oficinaType"/>
+    <xsd:complexType name="oficinaType">
+        <xsd:sequence>
+            <xsd:element name="codigo" type="tns:codigoOficinaType"/>
+            <xsd:element minOccurs="0" name="descripcion" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="ubicacion" type="ub:direccionType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:simpleType name="codigoOficinaType">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+</xsd:schema>

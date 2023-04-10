@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:Q1="http://colsanitas.com/osi/comun/organizacion" xmlns:Q2="http://colsanitas.com/osi/recaudo/Transaccion" xmlns:Q3="http://colsanitas.com/osi/recaudo/MedioPago" xmlns:Q4="http://colsanitas.com/osi/recaudo/Pin" xmlns:Q5="http://colsanitas.com/osi/recaudo/Estacion" xmlns:Q6="http://colsanitas.com/osi/comun/nofuncionales" xmlns:Q7="http://colsanitas.com/osi/recaudo" xmlns:Q8="http://colsanitas.com/osi/comun/ubicacion" xmlns:tns="http://colsanitas.com/osi/srv/GestionDocEquivService" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://colsanitas.com/osi/srv/GestionDocEquivService">
+    <xsd:import namespace="http://colsanitas.com/osi/recaudo" schemaLocation="Pin.xsd"/>
+    <xsd:import namespace="http://colsanitas.com/osi/recaudo" schemaLocation="MedioPago.xsd"/>
+    <xsd:import namespace="http://colsanitas.com/osi/recaudo" schemaLocation="MediosPago.xsd"/>
+    <xsd:import namespace="http://colsanitas.com/osi/recaudo" schemaLocation="DetalleConcepto.xsd"/>
+    <xsd:import namespace="http://colsanitas.com/osi/comun/organizacion" schemaLocation="Precio.xsd"/>
+    <xsd:import namespace="http://colsanitas.com/osi/recaudo" schemaLocation="Estacion.xsd"/>
+    <xsd:import namespace="http://colsanitas.com/osi/recaudo/Transaccion" schemaLocation="Transaccion.xsd"/>
+    <xsd:import namespace="http://colsanitas.com/osi/comun/organizacion" schemaLocation="Canal.xsd"/>
+    <xsd:import namespace="http://colsanitas.com/osi/comun/ubicacion" schemaLocation="Ciudad.xsd"/>
+    <xsd:import namespace="http://colsanitas.com/osi/comun/nofuncionales" schemaLocation="Definiciones.xsd"/>
+    <xsd:import namespace="http://colsanitas.com/osi/comun/organizacion" schemaLocation="Contrato.xsd"/>
+    <xsd:import namespace="http://colsanitas.com/osi/comun/organizacion" schemaLocation="Plan.xsd"/>
+    <xsd:import namespace="http://colsanitas.com/osi/comun/organizacion" schemaLocation="Compania.xsd"/>
+    <xsd:element name="generarDocumentoEquivEnt" type="tns:generarDocEquivEntType"/>
+    <xsd:element name="generarDocumentoEquivSal" type="tns:generarDocEquivSalType"/>
+    <xsd:element name="consultarDocumentoEquivEnt" type="tns:consultarDocEquivEntType"/>
+    <xsd:element name="consultarDocumentoEquivSal" type="tns:consultarDocEquivSalType"/>
+    <xsd:element name="anularDocumentoEquivEnt" type="tns:anularDocEquivEntType"/>
+    <xsd:element name="anularDocumentoEquivSal" type="tns:anularDocEquivSalType"/>
+    <xsd:element name="generarFacturaEnt" type="tns:generarFacturaEntType"/>
+    <xsd:element name="generarFacturaSal" type="tns:generarFacturaSalType"/>
+    <xsd:complexType name="generarDocEquivEntType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="categoria" type="tns:categoriaType"/>
+            <xsd:element name="ListaMediosPago">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="unbounded" name="mediosPago" type="Q7:medioPagoType"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="ListaPines">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="unbounded" minOccurs="0" name="pines" type="Q7:PinType"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="codigoCompania" type="Q1:codigoCiaType"/>
+            <xsd:element name="codigoPlan" type="Q1:codigoPlanType"/>
+            <xsd:element name="numContrato" type="Q1:numeroContratoType"/>
+            <xsd:element name="numeroFamilia" type="Q1:numeroFliaType"/>
+            <xsd:element name="codigoConcepto" type="Q7:codigoConceptoType"/>
+            <xsd:element name="estacion" type="Q7:codigoEstacionType"/>
+            <xsd:element name="ciudadVenta" type="Q8:codigoCiudadType"/>
+            <xsd:element name="codigoCanal" type="Q1:codigoCanalType"/>
+            <xsd:element name="numeroTransaccion" type="Q2:numeroTransaccionType"/>
+            <xsd:element name="valor" type="Q1:precioType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:simpleType name="categoriaType">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+    <xsd:complexType name="generarDocEquivSalType">
+        <xsd:sequence>
+            <xsd:element name="num_trans_docEquiv" type="Q2:numeroTransaccionType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="consultarDocEquivEntType">
+        <xsd:sequence>
+            <xsd:element name="codigo_compania" type="Q1:codigoCiaType"/>
+            <xsd:element name="estacion" type="Q7:codigoEstacionType"/>
+            <xsd:element name="num_transaccion_docEquiv" type="Q2:numeroTransaccionType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="consultarDocEquivSalType">
+        <xsd:sequence>
+            <xsd:element name="DocEquiv_URL" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="anularDocEquivEntType">
+        <xsd:sequence>
+            <xsd:element name="codigo_compania" type="Q1:codigoCiaType"/>
+            <xsd:element name="estacion" type="Q7:codigoEstacionType"/>
+            <xsd:element name="num_trans_ref" type="Q2:numeroTransaccionType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="anularDocEquivSalType">
+        <xsd:sequence>
+            <xsd:element name="num_trans_docEq" type="Q2:numeroTransaccionType"/>
+            <xsd:element name="num_trans" type="Q2:numeroTransaccionType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="generarFacturaEntType">
+        <xsd:sequence>
+            <xsd:element name="codigoCompania" type="Q1:codigoCiaType"/>
+            <xsd:element name="codigoPlan" type="Q1:codigoPlanType"/>
+            <xsd:element name="numContrato" type="Q1:numeroContratoType"/>
+            <xsd:element name="numeroFamilia" type="Q1:numeroFliaType"/>
+            <xsd:element name="categoria" type="tns:categoriaType"/>
+            <xsd:element name="ListaConceptos">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="unbounded" name="detalleConcepto" type="Q7:detalleConceptoType"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="codIdentificacionPagador" type="xsd:string"/>
+            <xsd:element name="tipoIdentificacionPagador" type="xsd:string"/>
+            <xsd:element name="numIdentificacionPagador" type="xsd:string"/>
+            <xsd:element name="nombrePagador" type="xsd:string"/>
+            <xsd:element name="apellidoPagador" type="xsd:string"/>
+            <xsd:element name="telefonoPagador" type="xsd:string"/>
+            <xsd:element name="estacionIn" type="xsd:integer"/>
+            <xsd:element name="ciudadVenta" type="xsd:integer"/>
+            <xsd:element name="numTransRef" type="Q2:numeroTransaccionType"/>
+            <xsd:element name="valorTotalTransaccion" type="xsd:long"/>
+            <xsd:element name="mediosPago" type="Q7:mediosPagoType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="generarFacturaSalType">
+        <xsd:sequence>
+            <xsd:element name="numTransaccion" type="Q2:numeroTransaccionType"/>
+            <xsd:element name="numFactura" type="Q2:numFacturaType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:Q3="http://colsanitas.com/osi/comun/ubicacion" xmlns:Q4="http://colsanitas.com/osi/recaudo/Canal" xmlns:Q5="http://colsanitas.com/osi/comun/definicionesfuncionales" xmlns:Q6="http://colsanitas.com/osi/recaudo/EntidadFinanciera" xmlns:Q7="http://colsanitas.com/osi/recaudo/TiraAuditora" xmlns:Q8="http://colsanitas.com/osi/comun/organizacion" xmlns:Q9="http://colsanitas.com/osi/recaudo" xmlns:tns="http://colsanitas.com/osi/recaudo/Transaccion" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://colsanitas.com/osi/recaudo/Transaccion">
+    <xsd:import namespace="http://colsanitas.com/osi/recaudo" schemaLocation="Concepto.xsd"/>
+    <xsd:import namespace="http://colsanitas.com/osi/recaudo" schemaLocation="MedioPago.xsd"/>
+    <xsd:import namespace="http://colsanitas.com/osi/comun/organizacion" schemaLocation="Compania.xsd"/>
+    <xsd:import namespace="http://colsanitas.com/osi/recaudo/TiraAuditora" schemaLocation="TiraAuditora.xsd"/>
+    <xsd:import namespace="http://colsanitas.com/osi/comun/organizacion" schemaLocation="Canal.xsd"/>
+    <xsd:import namespace="http://colsanitas.com/osi/recaudo/TiraAuditora" schemaLocation="TiraAuditora.xsd"/>
+    <xsd:import namespace="http://colsanitas.com/osi/recaudo/TiraAuditora" schemaLocation="TiraAuditora.xsd"/>
+    <xsd:import namespace="http://colsanitas.com/osi/comun/definicionesfuncionales" schemaLocation="DefinicionesFuncionales.xsd"/>
+    <xsd:import namespace="http://colsanitas.com/osi/comun/ubicacion" schemaLocation="Ciudad.xsd"/>
+    <xsd:element name="obtenerDatosTransaccion" type="tns:transaccionType"/>
+    <xsd:complexType name="transaccionType">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="conceptos" type="Q9:conceptoType"/>
+            <xsd:element minOccurs="0" name="numTransaccion" type="tns:numeroTransaccionType"/>
+            <xsd:element minOccurs="0" name="tira_auditora" type="Q7:tiraAuditoraType"/>
+            <xsd:element minOccurs="0" name="numRecibo" type="tns:numReciboType"/>
+            <xsd:element minOccurs="0" name="codigoCompania" type="Q8:codigoCiaType"/>
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="mediosPago" type="Q9:medioPagoType"/>
+            <xsd:element minOccurs="0" name="numFactura" type="tns:numFacturaType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:simpleType name="numeroTransaccionType">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+    <xsd:simpleType name="numReciboType">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+    <xsd:simpleType name="numFacturaType">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+</xsd:schema>

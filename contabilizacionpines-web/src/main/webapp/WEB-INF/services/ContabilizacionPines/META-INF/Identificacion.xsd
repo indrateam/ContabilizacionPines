@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://colsanitas.com/osi/comun/persona" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://colsanitas.com/osi/comun/persona">
+    <xsd:simpleType name="tipoDocumentoType">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+    <xsd:simpleType name="documentoType">
+        <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="20"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:complexType name="identificacionType">
+        <xsd:sequence>
+            <xsd:element ref="tns:Documento"/>
+            <xsd:element ref="tns:TipoDocumento"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="Documento" type="tns:documentoType"/>
+    <xsd:element name="TipoDocumento" type="tns:tipoDocumentoType"/>
+    <xsd:element name="Identificacion" type="tns:identificacionType"/>
+</xsd:schema>

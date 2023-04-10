@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://colsanitas.com/osi/comun/ubicacion" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://colsanitas.com/osi/comun/ubicacion">
+    <xsd:element name="Pais" type="tns:paisType"/>
+    <xsd:complexType name="paisType">
+        <xsd:sequence>
+            <xsd:element name="codigo" type="tns:codigoPaisType"/>
+            <xsd:element minOccurs="0" name="descripcion" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:simpleType name="codigoPaisType">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+</xsd:schema>

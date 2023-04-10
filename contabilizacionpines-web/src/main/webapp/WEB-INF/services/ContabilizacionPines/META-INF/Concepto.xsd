@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://colsanitas.com/osi/recaudo" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://colsanitas.com/osi/recaudo">
+    <xsd:element name="concepto" type="tns:conceptoType"/>
+    <xsd:complexType name="conceptoType">
+        <xsd:sequence>
+            <xsd:element name="codigo" type="tns:codigoConceptoType"/>
+            <xsd:element minOccurs="0" name="descripcion" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="valor" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="comportamiento" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="codigoImpuestoAsociado" type="tns:conceptoType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:simpleType name="codigoConceptoType">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+</xsd:schema>

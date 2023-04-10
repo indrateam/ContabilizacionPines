@@ -1,0 +1,6 @@
+ <jboss-app>
+	<loader-repository>
+		com.osi.contabilizacionpines:loader=contabilizacionpines
+	</loader-repository>
+ </jboss-app>
+ 

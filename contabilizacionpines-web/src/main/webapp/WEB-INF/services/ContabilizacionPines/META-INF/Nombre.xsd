@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://colsanitas.com/osi/comun/persona" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://colsanitas.com/osi/comun/persona">
+    <xsd:element name="Nombre" type="tns:nombreType"/>
+    <xsd:complexType name="nombreType">
+        <xsd:sequence>
+            <xsd:element name="prNombre" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="secNombre" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="Apellido" type="tns:apellidoType"/>
+    <xsd:complexType name="apellidoType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="prApellido" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="secApellido" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="NombreCompleto" type="tns:nombreCompletoType"/>
+    <xsd:complexType name="nombreCompletoType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="nombres" type="tns:nombreType"/>
+            <xsd:element minOccurs="0" name="apellidos" type="tns:apellidoType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:simpleType name="nombreCompuestoType">
+        <xsd:annotation>
+            <xsd:documentation>union del los nombres y apellidos en una sola cadena</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+    <xsd:element name="NombreCompuesto" type="tns:nombreCompuestoType"/>
+</xsd:schema>

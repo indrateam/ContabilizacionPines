@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="GestionDocumentoEquivalente" targetNamespace="http://colsanitas.com/GestionDocumentoEquivalente/" xmlns:xsd1="http://colsanitas.com/osi/srv/GestionDocEquivService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://colsanitas.com/GestionDocumentoEquivalente/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://colsanitas.com/GestionDocumentoEquivalente/" xmlns:Q1="http://colsanitas.com/osi/srv/GestionDocEquivService" xmlns:Q2="http://colsanitas.com/osi/comun/nofuncionales">
+            
+            <xsd:import namespace="http://colsanitas.com/osi/comun/nofuncionales" schemaLocation="StandarResponse.xsd"/>
+            <xsd:import namespace="http://colsanitas.com/osi/comun/nofuncionales" schemaLocation="StandarRequest.xsd"/>
+            <xsd:import namespace="http://colsanitas.com/osi/srv/GestionDocEquivService" schemaLocation="GestionDocEquivService.xsd"/>
+            <xsd:element name="HeaderRqust">
+            	<xsd:complexType>
+            		<xsd:sequence>
+            			<xsd:element name="header" type="Q2:RequestHeader"/>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+            <xsd:element name="HeaderRspns">
+            	<xsd:complexType>
+            		<xsd:sequence>
+            			<xsd:element name="header" type="Q2:ResponseHeader"/>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+			<xsd:element name="GenerarDocumentoEquivalenteEnt">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="generarDocEquivEnt" type="Q1:generarDocEquivEntType"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="GenerarDocumentoEquivalenteSal">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="generarDocEquivSal" type="Q1:generarDocEquivSalType"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ConsultarDocumentoEquivalenteEnt">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="consultarDocEquivEnt" type="Q1:consultarDocEquivEntType"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ConsultarDocumentoEquivalenteSal">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="consultaDocEquivSal" type="Q1:consultarDocEquivSalType"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnularDocumentoEquivalenteEnt">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="anularDocEquivEnt" type="Q1:anularDocEquivEntType"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnularDocumentoEquivalenteSal">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="anularDocEquivSal" type="Q1:anularDocEquivSalType"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="GenerarFacturaEnt">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="generarFacturaEnt" type="Q1:generarFacturaEntType"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>			
+			<xsd:element name="GenerarFacturaSal">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="generarFacturaSal" type="Q1:generarFacturaSalType"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="GenerarDocumentoEquivalenteFault">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="GenerarDocumentoEquivalenteFault" type="Q2:ErrorDetail">
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ConsultarDocumentoEquivalenteFault">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="ConsultarDocumentoEquivalenteFault" type="Q2:ErrorDetail">
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnularDocumentoEquivalenteFault">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="AnularDocumentoEquivalenteFault" type="Q2:ErrorDetail">
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="GenerarFacturaFault">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="GenerarFacturaFault" type="Q2:ErrorDetail">
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+        </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://colsanitas.com/osi/srv/GestionDocEquivService" schemaLocation="GestionDocEquivService.xsd">
+			</xsd:import></xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="AnularDocumentoEquivalenteResponse">
+    <wsdl:part name="parameters" element="xsd1:anularDocumentoEquivSal">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="HeaderRequest">
+    <wsdl:part name="headerRq" element="tns:HeaderRqust">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ConsultarDocumentoEquivalenteResponse">
+    <wsdl:part name="parameters" element="xsd1:consultarDocumentoEquivSal">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="HeaderResponse">
+    <wsdl:part name="headerRs" element="tns:HeaderRspns">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AnularDocumentoEquivalenteRequest">
+    <wsdl:part name="parameters" element="xsd1:anularDocumentoEquivEnt">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ConsultarDocumentoEquivalenteRequest">
+    <wsdl:part name="parameters" element="xsd1:consultarDocumentoEquivEnt">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GenerarDocumentoEquivalenteRequest">
+    <wsdl:part name="parameters" element="xsd1:generarDocumentoEquivEnt">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AnularDocumentoEquivalenteFault">
+    <wsdl:part name="parameters" element="tns:AnularDocumentoEquivalenteFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GenerarDocumentoEquivalenteResponse">
+    <wsdl:part name="parameters" element="xsd1:generarDocumentoEquivSal">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ConsultarDocumentoEquivalenteFault">
+    <wsdl:part name="parameters" element="tns:ConsultarDocumentoEquivalenteFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GenerarDocumentoEquivalenteFault">
+    <wsdl:part name="parameters" element="tns:GenerarDocumentoEquivalenteFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GenerarFacturaRequest">
+    <wsdl:part name="parameters" element="xsd1:generarFacturaEnt">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GenerarFacturaResponse">
+    <wsdl:part name="parameters" element="xsd1:generarFacturaSal">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GenerarFacturaFault">
+    <wsdl:part name="parameters" element="tns:GenerarFacturaFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="GestionDocumentoEquivalente">
+    <wsdl:operation name="GenerarDocumentoEquivalente">
+      <wsdl:input message="tns:GenerarDocumentoEquivalenteRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:GenerarDocumentoEquivalenteResponse">
+    </wsdl:output>
+      <wsdl:fault name="GenerarDocumentoEquivalenteFault" message="tns:GenerarDocumentoEquivalenteFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDocumentoEquivalente">
+      <wsdl:input message="tns:ConsultarDocumentoEquivalenteRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:ConsultarDocumentoEquivalenteResponse">
+    </wsdl:output>
+      <wsdl:fault name="ConsultarDocumentoEquivalenteFault" message="tns:ConsultarDocumentoEquivalenteFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AnularDocumentoEquivalente">
+      <wsdl:input message="tns:AnularDocumentoEquivalenteRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:AnularDocumentoEquivalenteResponse">
+    </wsdl:output>
+      <wsdl:fault name="AnularDocumentoEquivalenteFault" message="tns:AnularDocumentoEquivalenteFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GenerarFactura">
+      <wsdl:input message="tns:GenerarFacturaRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:GenerarFacturaResponse">
+    </wsdl:output>
+      <wsdl:fault name="GenerarFacturaFault" message="tns:GenerarFacturaFault">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GestionDocumentoEquivalenteSOAP" type="tns:GestionDocumentoEquivalente">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GenerarDocumentoEquivalente">
+      <soap:operation soapAction="http://colsanitas.com/GestionDocumentoEquivalente/GenerarDocumentoEquivalente"/>
+      <wsdl:input>
+        <soap:header message="tns:HeaderRequest" part="headerRq" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:HeaderResponse" part="headerRs" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="GenerarDocumentoEquivalenteFault">
+        <soap:fault name="GenerarDocumentoEquivalenteFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDocumentoEquivalente">
+      <soap:operation soapAction="http://colsanitas.com/GestionDocumentoEquivalente/ConsultarDocumentoEquivalente"/>
+      <wsdl:input>
+        <soap:header message="tns:HeaderRequest" part="headerRq" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:HeaderResponse" part="headerRs" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ConsultarDocumentoEquivalenteFault">
+        <soap:fault name="ConsultarDocumentoEquivalenteFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AnularDocumentoEquivalente">
+      <soap:operation soapAction="http://colsanitas.com/GestionDocumentoEquivalente/AnularDocumentoEquivalente"/>
+      <wsdl:input>
+        <soap:header message="tns:HeaderRequest" part="headerRq" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:HeaderResponse" part="headerRs" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AnularDocumentoEquivalenteFault">
+        <soap:fault name="AnularDocumentoEquivalenteFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GenerarFactura">
+      <soap:operation soapAction="http://colsanitas.com/GestionDocumentoEquivalente/GenerarFactura"/>
+      <wsdl:input>
+        <soap:header message="tns:HeaderRequest" part="headerRq" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:HeaderResponse" part="headerRs" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="GenerarFacturaFault">
+        <soap:fault name="GenerarFacturaFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GestionDocumentoEquivalente">
+    <wsdl:port name="GestionDocumentoEquivalenteSOAP" binding="tns:GestionDocumentoEquivalenteSOAP">
+      <soap:address location="http://localhost:8080/Contabilizacion_Pines/GestionDocumentoEquivalenteSOAP"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,21 @@
+.metadata
+.classpath
+.settings/
+target/
+bin/
+Servers
+RemoteSystemsTempFiles
+.svn
+*.log
+*.versionsBackup
+.project
+.pmd
+test.properties
+
+#Código SM
+explora/explora-web/src/main/java/com/fb/explora/web/archivos/
+explora/explora-web/src/main/webapp/WEB-INF/views/archivos/
+explora/explora-web/src/main/webapp/scripts/archivos/
+explora/explora-web/src/main/webapp/styles/archivos/
+explora/explora-confama/src/
+explora/explora-tarjetas/src/

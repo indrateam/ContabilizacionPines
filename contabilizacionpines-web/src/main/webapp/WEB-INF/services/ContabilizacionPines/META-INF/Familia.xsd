@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:df="http://colsanitas.com/osi/comun/definicionesfuncionales" xmlns:tns="http://colsanitas.com/osi/comun/organizacion" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://colsanitas.com/osi/comun/organizacion">
+    <xsd:import namespace="http://colsanitas.com/osi/comun/definicionesfuncionales" schemaLocation="DefinicionesFuncionales.xsd"/>
+    <xsd:include schemaLocation="Usuario.xsd"/>
+    <xsd:element name="Familia" type="tns:familiaType"/>
+    <xsd:complexType name="familiaType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="numero" type="tns:numeroFliaType"/>
+            <xsd:element minOccurs="0" name="estado" type="df:estadoType"/>
+            <xsd:element minOccurs="0" name="motivo" type="df:motivoType"/>
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="usuarios" type="tns:usuarioType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:simpleType name="numeroFliaType">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+</xsd:schema>

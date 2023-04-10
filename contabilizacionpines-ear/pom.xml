@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>contabilizacionpines</artifactId>
+    <groupId>com.osi</groupId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>contabilizacionpines-ear</artifactId>
+  <packaging>ear</packaging>
+
+  <name>contabilizacionpines-ear</name>
+  <url>http://maven.apache.org</url>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.8</version>
+				<configuration>
+					<version>5</version>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<finalName>contabilizacionpines-ear</finalName>
+					<modules>
+						<ejbModule>
+							<groupId>com.osi</groupId>
+							<artifactId>contabilizacionpines-ejb</artifactId>
+						</ejbModule>
+						<webModule>
+							<groupId>com.osi</groupId>
+							<artifactId>contabilizacionpines-web</artifactId>
+							<contextRoot>/contabilizacionpines</contextRoot>
+						</webModule>
+                        <ejbModule>
+                            <groupId>org.jboss.seam</groupId>
+                            <artifactId>jboss-seam</artifactId>
+                            <bundleFileName>jboss-seam.jar</bundleFileName>
+                        </ejbModule>
+					</modules>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jboss-maven-plugin</artifactId>
+				<configuration>
+					<jbossHome>${jboss.directory}</jbossHome>
+					<serverName>default</serverName>
+					<fileNames>
+						<fileName>target/contabilizacionpines-ear.ear</fileName>
+					</fileNames>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.osi</groupId>
+			<artifactId>contabilizacionpines-ejb</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+			<type>ejb</type>
+		</dependency>
+		<dependency>
+			<groupId>com.osi</groupId>
+			<artifactId>contabilizacionpines-web</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+			<type>war</type>
+		</dependency>
+        <dependency>
+            <groupId>org.jboss.seam</groupId>
+            <artifactId>jboss-seam</artifactId>
+            <version>${jboss-seam.version}</version>
+            <type>ejb</type>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.testng</groupId>
+                    <artifactId>testng</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>junit</groupId>
+                    <artifactId>junit</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.el</groupId>
+                    <artifactId>el-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>		
+	</dependencies>
+	
+	<pluginRepositories>
+		<pluginRepository>
+			<id>central</id>
+			<name>Central Repository</name>
+			<url>https://repo.maven.apache.org/maven2</url>
+			<layout>default</layout>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+		</pluginRepository>
+	</pluginRepositories>
+	
+	<repositories>
+		<repository>
+			<id>central</id>
+			<name>Central Repository</name>
+			<url>https://repo.maven.apache.org/maven2</url>
+			<layout>default</layout>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+</project>

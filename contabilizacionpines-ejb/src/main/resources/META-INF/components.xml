@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<components xmlns="http://jboss.com/products/seam/components"
+	xmlns:core="http://jboss.com/products/seam/core" xmlns:transaction="http://jboss.com/products/seam/transaction"
+	xmlns:async="http://jboss.com/products/seam/async" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://jboss.com/products/seam/core http://jboss.com/product/seam/core-2.3.xsd
+                                 http://jboss.com/products/seam/transaction http://jboss.com/products/seam/transaction-2.3.xsd
+                                 http://jboss.com/products/seam/async http://jboss.com/products/seam/async-2.3.xsd">
+	<core:init debug="true" jndi-pattern="contabilizacionpines-ear/#{ejbName}/local" />
+	<transaction:ejb-transaction />
+</components>

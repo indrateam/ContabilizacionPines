@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:Q1="http://colsanitas.com/osi/comun/definicionesfuncionales" xmlns:cia="http://colsanitas.com/osi/comun/organizacion" xmlns:ciud="http://colsanitas.com/osi/comun/ubicacion" xmlns:cnl="http://colsanitas.com/osi/comun" xmlns:pers="http://colsanitas.com/osi/comun/persona" xmlns:pref="http://colsanitas.com/osi/recaudo" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://colsanitas.com/osi/recaudo">
+    <xsd:import namespace="http://colsanitas.com/osi/comun/organizacion" schemaLocation="Precio.xsd"/>
+    <xsd:import namespace="http://colsanitas.com/osi/comun/definicionesfuncionales" schemaLocation="DefinicionesFuncionales.xsd"/>
+    <xsd:import namespace="http://colsanitas.com/osi/comun/organizacion" schemaLocation="Canal.xsd"/>
+    <xsd:import namespace="http://colsanitas.com/osi/comun/organizacion" schemaLocation="Contrato.xsd"/>
+    <xsd:import namespace="http://colsanitas.com/osi/comun/ubicacion" schemaLocation="Ciudad.xsd"/>
+    <xsd:import namespace="http://colsanitas.com/osi/comun/organizacion" schemaLocation="Plan.xsd"/>
+    <xsd:import namespace="http://colsanitas.com/osi/comun/organizacion" schemaLocation="Compania.xsd"/>
+    <xsd:import namespace="http://colsanitas.com/osi/comun/persona" schemaLocation="Persona.xsd"/>
+    <xsd:element name="Pin" type="pref:PinType"/>
+    <xsd:complexType name="PinType">
+        <xsd:annotation>
+            <xsd:documentation>Código del pin electrónico</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="codPin" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="fechaAsignacion" type="xsd:dateTime">
+                <xsd:annotation>
+                    <xsd:documentation>
+						Fecha de asignación
+					</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="fechaUtilizacion" type="xsd:dateTime">
+                <xsd:annotation>
+                    <xsd:documentation>
+						Fecha de utilización
+					</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="fechaUltimoEstado" type="xsd:dateTime"/>
+            <xsd:element minOccurs="0" name="personaAutoriza" type="pers:personaType"/>
+            <xsd:element minOccurs="0" name="personaUtiliza" type="pers:personaType"/>
+            <xsd:element minOccurs="0" name="prestador" type="pers:personaType"/>
+            <xsd:element minOccurs="0" name="canalAsignado" type="cia:canalType"/>
+            <xsd:element minOccurs="0" name="canalUtilizado" type="cia:canalType"/>
+            <xsd:element minOccurs="0" name="compania" type="cia:companiaType"/>
+            <xsd:element minOccurs="0" name="plan" type="cia:planType"/>
+            <xsd:element minOccurs="0" name="estado" type="Q1:estadoType"/>
+            <xsd:element minOccurs="0" name="motivo" type="Q1:motivoType"/>
+            <xsd:element minOccurs="0" name="contrato" type="cia:contratoType"/>
+            <xsd:element minOccurs="0" name="familia" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="categoria" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="estacion" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="numeroTransaccion" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="ciudad" type="ciud:ciudadType"/>
+            <xsd:element minOccurs="0" name="precio" type="cia:precioType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:simpleType name="numeroPinType">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+</xsd:schema>

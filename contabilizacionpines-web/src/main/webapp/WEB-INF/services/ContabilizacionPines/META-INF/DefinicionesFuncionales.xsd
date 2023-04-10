@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://colsanitas.com/osi/comun/definicionesfuncionales" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://colsanitas.com/osi/comun/definicionesfuncionales">
+    <xsd:complexType name="estadoType">
+        <xsd:annotation>
+            <xsd:documentation>Tipo que representa el concepto de estado de un
+				objeto (Se crea para validar los estados que puede tener un Pin )
+			</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="codigo" type="tns:codigoEstadoType"/>
+            <xsd:element minOccurs="0" name="descripcion" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="estado" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="motivoType">
+        <xsd:annotation>
+            <xsd:documentation>Tipo que representa el concepto de un detalle o
+				motivo relacionado a un estado
+			</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="codigo" type="tns:codigoMotivoType"/>
+            <xsd:element minOccurs="0" name="descripcion" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="estado" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="rolType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="codigo" type="tns:codigoRolType"/>
+            <xsd:element minOccurs="0" name="descripcion" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="tipoType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="codigo" type="tns:codigoTipoType"/>
+            <xsd:element minOccurs="0" name="descripcion" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="parentescoType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="codigo" type="tns:codigoParentescoType"/>
+            <xsd:element minOccurs="0" name="descripcion" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="periodicidadType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="codigo" type="tns:codigoPeriodType"/>
+            <xsd:element minOccurs="0" name="descripcion" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="epsType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="codigo" type="tns:codigoEpsType"/>
+            <xsd:element minOccurs="0" name="descripcion" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:simpleType name="codigoEpsType">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+    <xsd:simpleType name="codigoParentescoType">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+    <xsd:simpleType name="codigoRolType">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+    <xsd:simpleType name="codigoPeriodType">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+    <xsd:simpleType name="codigoEstadoType">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+    <xsd:simpleType name="codigoMotivoType">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+    <xsd:simpleType name="codigoTipoType">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+</xsd:schema>

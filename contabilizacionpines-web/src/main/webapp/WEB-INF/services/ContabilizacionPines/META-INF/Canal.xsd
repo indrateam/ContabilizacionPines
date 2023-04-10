@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://colsanitas.com/osi/comun/organizacion" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://colsanitas.com/osi/comun/organizacion">
+    <xsd:annotation>
+        <xsd:documentation>Canonico que representa el concepto de Canal en el
+			negocio OSI
+		</xsd:documentation>
+    </xsd:annotation>
+    <xsd:element name="Canal" type="tns:canalType"/>
+    <xsd:complexType name="canalType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="codigo" type="tns:codigoCanalType"/>
+            <xsd:element minOccurs="0" name="tipo" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="descripcion" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:simpleType name="codigoCanalType">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://colsanitas.com/osi/comun/ubicacion" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://colsanitas.com/osi/comun/ubicacion">
+    <xsd:include schemaLocation="Ciudad.xsd"/>
+    <xsd:include schemaLocation="Telefono.xsd"/>
+    <xsd:element name="Direccion" type="tns:direccionType"/>
+    <xsd:complexType name="direccionType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="ordinal" type="xsd:int"/>
+            <xsd:element minOccurs="0" name="principal" type="tns:viaType"/>
+            <xsd:element minOccurs="0" name="cruce" type="tns:viaType"/>
+            <xsd:element minOccurs="0" name="complementarios" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="localidad" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="telefono1" type="tns:telefonoType"/>
+            <xsd:element minOccurs="0" name="fax" type="tns:telefonoType"/>
+            <xsd:element minOccurs="0" name="telefono2" type="tns:telefonoType"/>
+            <xsd:element minOccurs="0" name="celular" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="correoElectronico" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="nomenclatura" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="municipio" type="tns:ciudadType"/>
+            <xsd:element minOccurs="0" name="tipoViaPrincipal" type="tns:codigoViaPrincipalType"/>
+            <xsd:element minOccurs="0" name="zonaLocalidad" type="tns:codigoZonaLocalidadType"/>
+            <xsd:element minOccurs="0" name="direecionCompleta" type="tns:direccionCompletaType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="viaType">
+        <xsd:sequence>
+            <xsd:element name="numero" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="descripcion" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="letra" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="bis" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="letraBis" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="zona" type="tns:zonaType"/>
+            <xsd:element minOccurs="0" name="orden" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:simpleType name="zonaType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="NORTE"/>
+            <xsd:enumeration value="SUR"/>
+            <xsd:enumeration value="ORIENTE"/>
+            <xsd:enumeration value="OCCIDENTE"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="codigoDireccionType">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+    <xsd:complexType name="zonaLocalidadType">
+        <xsd:sequence>
+            <xsd:element name="codigo" type="tns:codigoZonaLocalidadType"/>
+            <xsd:element minOccurs="0" name="zona" type="tns:viaType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:simpleType name="codigoZonaLocalidadType">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+    <xsd:complexType name="viaPrincipalType">
+        <xsd:sequence>
+            <xsd:element name="codigo" type="tns:codigoViaPrincipalType"/>
+            <xsd:element minOccurs="0" name="descripcion" type="tns:viaType"/>
+            <xsd:element minOccurs="0" name="abreviatura" type="tns:viaType"/>
+            <xsd:element minOccurs="0" name="numeroRequerido" type="tns:viaType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:simpleType name="codigoViaPrincipalType">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+    <xsd:simpleType name="direccionCompletaType">
+        <xsd:annotation>
+            <xsd:documentation>atributo que sirve para registrar la direccion completa</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+</xsd:schema>

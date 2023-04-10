@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://colsanitas.com/osi/recaudo" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://colsanitas.com/osi/recaudo">
+    <xsd:include schemaLocation="EntidadFinanciera.xsd"/>
+    <xsd:include schemaLocation="MedioPago.xsd"/>
+    <xsd:element name="mediosPago" type="tns:mediosPagoType"/>
+    <xsd:complexType name="mediosPagoType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="codigo" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="tipoMedio" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="codigoEntFinanciera" type="tns:codigoEntidadFinType"/>
+            <xsd:element minOccurs="0" name="numeroTarjeta" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="valor" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

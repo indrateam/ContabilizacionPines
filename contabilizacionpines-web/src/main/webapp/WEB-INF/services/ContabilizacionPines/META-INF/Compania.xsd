@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:Q1="tns" xmlns:Q2="http://colsanitas.com/osi/comun/persona" xmlns:tns="http://colsanitas.com/osi/comun/organizacion" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://colsanitas.com/osi/comun/organizacion">
+    <xsd:annotation>
+        <xsd:documentation>Canonico que representa el concepto de Compañia en
+			el negocio OSI</xsd:documentation>
+    </xsd:annotation>
+    <xsd:import namespace="http://colsanitas.com/osi/comun/persona" schemaLocation="Identificacion.xsd"/>
+    <xsd:element name="Compania" type="tns:companiaType"/>
+    <xsd:complexType name="companiaType">
+        <xsd:sequence>
+            <xsd:element name="codCompania" type="tns:codigoCiaType"/>
+            <xsd:element minOccurs="0" name="desCompania" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="tipo" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="identificacion" type="Q2:identificacionType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:simpleType name="codigoCiaType">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://colsanitas.com/osi/comun/ubicacion" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://colsanitas.com/osi/comun/ubicacion">
+    <xsd:element name="Telefono" type="tns:telefonoType"/>
+    <xsd:complexType name="telefonoType">
+        <xsd:sequence>
+            <xsd:element name="numero" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="ext" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="indicativo" type="tns:indicativoType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="celularType">
+        <xsd:sequence>
+            <xsd:element name="numero" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="indicativo" type="tns:indicativoType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="indicativoType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="indicativoPais" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="codigoArea" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>
