@@ -173,6 +173,11 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		<dependency>
+            <groupId>org.tempuri</groupId>
+            <artifactId>ClienteProxyPersona</artifactId>
+            <version>1.0</version>
+        </dependency>
 	</dependencies>
 
 	<reporting>
