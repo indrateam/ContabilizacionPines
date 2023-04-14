@@ -38,7 +38,7 @@ public class ServiceLocator {
 	}
 	
 	//proxypersona
-	public ProxyPersonaStub getServiceProxyPersoba() throws Exception {
+	public ProxyPersonaStub getServiceProxyPersona() throws Exception {
 		ProxyPersonaStub proxyPersonaStub = new ProxyPersonaStub(PROXYPERSONA_WSDL_LOCATION);
 		return proxyPersonaStub;
 	}

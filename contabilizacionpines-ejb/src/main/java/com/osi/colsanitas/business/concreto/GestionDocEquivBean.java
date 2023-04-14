@@ -3,6 +3,7 @@ package com.osi.colsanitas.business.concreto;
 import java.io.Serializable;
 
 import javax.annotation.Resource;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
@@ -15,6 +16,7 @@ import com.osi.colsanitas.business.fachada.GenerarFacturaDto;
 import com.osi.colsanitas.business.fachada.GestionDocEquivBeanLocal;
 import com.osi.colsanitas.business.fachada.RespuestaAnulacionDto;
 import com.osi.colsanitas.business.fachada.RespuestaGenerarFacturaDto;
+import com.osi.colsanitas.bussines.interfaces.IServiceProxyPersona;
 import com.osi.colsanitas.persistent.dao.concreto.GestionDocEquivDAO;
 import com.osi.colsanitas.persistent.dao.fachada.GestionDocEquivDAOFacade;
 
@@ -37,6 +39,8 @@ public class GestionDocEquivBean implements GestionDocEquivBeanLocal, Serializab
     @Resource(mappedName = "java:/ContabilizacionPinesDatasource")
     private transient DataSource dataSource;
 
+    @EJB
+    private IServiceProxyPersona servicioProxyPersona;
     /**
      * Constructor
      */
@@ -49,6 +53,16 @@ public class GestionDocEquivBean implements GestionDocEquivBeanLocal, Serializab
      */
     @Override
     public String generarDocEquivalente(final GenerarDocumentoEquivEntDto generarDocE) {
+    	
+    	//se debe implementar la logica.
+    	
+    	try {
+    		//ctafur agregar validacion de tipo contrato
+			String emailFacturacion = servicioProxyPersona.consultarProxyPersona("CC", "12345");
+			generarDocE.setEmailFacturacion(emailFacturacion);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
         return getGestionDao().generarDocEquivalente(generarDocE);
     }
 

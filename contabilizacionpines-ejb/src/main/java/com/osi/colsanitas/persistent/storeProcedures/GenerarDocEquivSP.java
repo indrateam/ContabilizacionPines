@@ -52,7 +52,8 @@ public class GenerarDocEquivSP extends StoredProcedure {
         declareParameter(new SqlParameter("pines", Types.VARCHAR));
         declareParameter(new SqlParameter("valor_total_medios_pago", Types.DECIMAL));
         declareParameter(new SqlParameter("medios_pago", Types.VARCHAR));
-
+        //AQUI SE DECLARA EL EMAIL FACTURACION
+        declareParameter(new SqlParameter("email",Types.VARCHAR));
         // parametros de salida
         declareParameter(new SqlOutParameter("err_code", Types.VARCHAR));
         declareParameter(new SqlOutParameter("err_msg", Types.VARCHAR));
@@ -137,7 +138,8 @@ public class GenerarDocEquivSP extends StoredProcedure {
             paramsEntrada.put("valor_total_medios_pago", null);
             paramsEntrada.put("medios_pago", null);
         }
-
+        //AQUI SE SETEA EL VALOR DEL CORREO
+        	paramsEntrada.put("email", ent.getEmailFacturacion());
         final Map<String, Object> resultado = super.execute(paramsEntrada);
         final String codigo = (String) resultado.get("err_code");
         final String descripcion = (String) resultado.get("err_msg");

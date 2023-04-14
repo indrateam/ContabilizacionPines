@@ -25,7 +25,7 @@ public class GenerarDocumentoEquivEntDto extends DtoBase {
 
     private List<MedioPagoDto> mediosPago;
     private List<PinDto> pines;
-
+    private String emailFacturacion;
     /**
      * @return el valor de la propiedad codigoCompania
      */
@@ -221,5 +221,13 @@ public class GenerarDocumentoEquivEntDto extends DtoBase {
     public final void setPines(final List<PinDto> pines) {
         this.pines = pines;
     }
+
+	public String getEmailFacturacion() {
+		return emailFacturacion;
+	}
+
+	public void setEmailFacturacion(String emailFacturacion) {
+		this.emailFacturacion = emailFacturacion;
+	}
 
 }
