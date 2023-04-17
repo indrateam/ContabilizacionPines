@@ -87,6 +87,7 @@ public class GestionDocumentoEquivalenteSkeleton {
             final com.colsanitas.osi.srv.gestiondocequivservice.GenerarDocumentoEquivEnt generarDocumentoEquivEnt)
             throws GenerarDocumentoEquivalenteFaultException, ContabilizacionPinesFault {
         try {
+        	//AQUI SE ENVIA EL DTO A LA CAPA EJB
             return TypeUtil.toGenerarDocumentoEquivSal(ejb.generarDocEquivalente(DtoUtil
                     .toDto(generarDocumentoEquivEnt.getGenerarDocumentoEquivEnt())));
         } catch (final Exception e) {

@@ -540,7 +540,7 @@ public final class DtoUtil {
         for (final MedioPagoType item : type.getListaMediosPago().getMediosPago()) {
             mediosPago.add(toDto(item));
         }
-
+        dto.setEmailFacturacion("dsrodriguez@indracompany.com");
         return dto;
     }
 
